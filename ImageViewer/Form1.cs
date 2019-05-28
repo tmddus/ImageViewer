@@ -30,12 +30,11 @@ namespace ImageViewer
         private void BtnPrev_Click(object sender, EventArgs e)
         {
             this.ImgCount--;
-            if(this.ImgCount < 0)
+            if (this.ImgCount < 0)
             {
                 this.ImgCount = this.imgList.Images.Count - 1;
             }
-            this.picImg.Image = (Image)this.imgList.Images[this.ImgCount];
-            this.label1.Text = (this.ImgCount + 1) + "/" + this.imgList.Images.Count;
+            changeImage();
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
@@ -45,8 +44,15 @@ namespace ImageViewer
             {
                 this.ImgCount = 0;
             }
+            changeImage();
+        }
+
+        private void changeImage()
+        {
             this.picImg.Image = (Image)this.imgList.Images[this.ImgCount];
             this.label1.Text = (this.ImgCount + 1) + "/" + this.imgList.Images.Count;
         }
+
+
     }
 }
